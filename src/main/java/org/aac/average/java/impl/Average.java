@@ -6,10 +6,10 @@ import org.aac.average.java.impl.datatypes.ConcreteInteger;
 
 public class Average {
     public static void main(String[] args) {
-        Function<Integer> average;
+        Function<ConcreteInteger> averageTwoIntegers;
 
-        average = new Function<>().addParameter(new FunctionParameter<Integer>("a"))
-                                  .addParameter(new FunctionParameter<Integer>("b"));
+        averageTwoIntegers = new Function<>().addParameter(new FunctionParameter<ConcreteInteger>("a"))
+                                             .addParameter(new FunctionParameter<ConcreteInteger>("b"));
 
         ConcreteInteger firstNumber = new ConcreteInteger.Builder()
                                                          .addDigit(ConcreteInteger.Digit.TWO)
