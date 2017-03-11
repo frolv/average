@@ -11,12 +11,12 @@ public class Average {
         averageTwoIntegers = new Function<>().addParameter(new FunctionParameter<ConcreteInteger>("a"))
                                              .addParameter(new FunctionParameter<ConcreteInteger>("b"));
 
-        ConcreteInteger firstNumber = new ConcreteInteger.Builder()
-                                                         .addDigit(ConcreteInteger.Digit.TWO)
+        ConcreteInteger firstNumber = new ConcreteInteger.DecimalBuilder()
+                                                         .addDigit(ConcreteInteger.DecimalDigit.TWO)
                                                          .build();
-        ConcreteInteger secondNumber = new ConcreteInteger.Builder()
-                                                          .addDigit(ConcreteInteger.Digit.ONE)
-                                                          .addDigit(ConcreteInteger.Digit.EIGHT)
+        ConcreteInteger secondNumber = new ConcreteInteger.DecimalBuilder()
+                                                          .addDigit(ConcreteInteger.DecimalDigit.ONE)
+                                                          .addDigit(ConcreteInteger.DecimalDigit.EIGHT)
                                                           .build();
     }
 }
