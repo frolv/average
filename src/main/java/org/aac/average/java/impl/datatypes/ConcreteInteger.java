@@ -1,7 +1,6 @@
 package org.aac.average.java.impl.datatypes;
 
 public class ConcreteInteger implements Comparable<ConcreteInteger> {
-    private int value;
     private Integer integer;
 
     public static enum Digit {
@@ -41,12 +40,10 @@ public class ConcreteInteger implements Comparable<ConcreteInteger> {
     }
 
     private ConcreteInteger(Builder builder) {
-        this.value = builder.value;
-        this.integer = new Integer(this.value);
+        this.integer = new Integer(builder.value);
     }
 
     protected ConcreteInteger(int value) {
-        this.value = value;
         this.integer = new Integer(value);
     }
 
