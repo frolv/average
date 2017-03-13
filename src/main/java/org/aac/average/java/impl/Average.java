@@ -11,8 +11,10 @@ public class Average {
         averageTwoIntegers = new Function<>().addParameter(new FunctionParameter<ConcreteInteger>("a"))
                                              .addParameter(new FunctionParameter<ConcreteInteger>("b"));
 
-        ConcreteInteger firstNumber = new ConcreteInteger.DecimalBuilder()
-                                                         .addDigit(ConcreteInteger.DecimalDigit.TWO)
+        ConcreteInteger firstNumber = new ConcreteInteger.BinaryBuilder()
+                                                         .addDigit(ConcreteInteger.BinaryDigit.ONE)
+                                                         .addDigit(ConcreteInteger.BinaryDigit.ONE)
+                                                         .addDigit(ConcreteInteger.BinaryDigit.ZERO)
                                                          .build();
         ConcreteInteger secondNumber = new ConcreteInteger.DecimalBuilder()
                                                           .addDigit(ConcreteInteger.DecimalDigit.ONE)
