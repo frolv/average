@@ -47,6 +47,11 @@ public class ConcreteInteger implements Comparable<ConcreteInteger> {
         public ConcreteInteger build() {
             return new ConcreteInteger(this);
         }
+
+        public ConcreteInteger buildNegative() {
+            value = -value;
+            return new ConcreteInteger(this);
+        }
     }
 
     public static class DecimalBuilder extends Builder {

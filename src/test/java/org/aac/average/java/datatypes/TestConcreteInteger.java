@@ -12,7 +12,8 @@ public class TestConcreteInteger {
         assertEquals(0, c.getValue());
     }
 
-    @Test public void testDecimalBuilderArgs() {
+    @Test
+    public void testDecimalBuilderArgs() {
         ConcreteInteger c = new ConcreteInteger.DecimalBuilder()
                                                .addDigit(ConcreteInteger.DecimalDigit.ONE)
                                                .build();
@@ -37,6 +38,12 @@ public class TestConcreteInteger {
                                .addDigit(ConcreteInteger.DecimalDigit.NINE)
                                .build();
         assertEquals(9, c.getValue());
+
+        c = new ConcreteInteger.DecimalBuilder()
+                               .addDigit(ConcreteInteger.DecimalDigit.TWO)
+                               .addDigit(ConcreteInteger.DecimalDigit.THREE)
+                               .buildNegative();
+        assertEquals(-23, c.getValue());
     }
 
     @Test
@@ -45,7 +52,8 @@ public class TestConcreteInteger {
         assertEquals(0, c.getValue());
     }
 
-    @Test public void testBinaryBuilderArgs() {
+    @Test
+    public void testBinaryBuilderArgs() {
         ConcreteInteger c = new ConcreteInteger.BinaryBuilder()
                                                .addDigit(ConcreteInteger.BinaryDigit.ONE)
                                                .build();
@@ -71,5 +79,41 @@ public class TestConcreteInteger {
                                .addDigit(ConcreteInteger.BinaryDigit.ONE)
                                .build();
         assertEquals(3, c.getValue());
+    }
+
+    @Test
+    public void testAdd() {
+        ConcreteInteger a, b, c;
+
+        a = new ConcreteInteger.DecimalBuilder()
+                               .addDigit(ConcreteInteger.DecimalDigit.ONE)
+                               .build();
+        b = new ConcreteInteger.DecimalBuilder()
+                               .addDigit(ConcreteInteger.DecimalDigit.FOUR)
+                               .build();
+        c = a.add(b);
+        assertEquals(5, c.getValue());
+        a = c.add(b);
+        assertEquals(9, a.getValue());
+        a = a.add(new ConcreteInteger.DecimalBuilder().build());
+        assertEquals(9, a.getValue());
+    }
+
+    @Test
+    public void testSubtract() {
+        ConcreteInteger a, b, c;
+
+        a = new ConcreteInteger.DecimalBuilder()
+                               .addDigit(ConcreteInteger.DecimalDigit.ONE)
+                               .build();
+        b = new ConcreteInteger.DecimalBuilder()
+                               .addDigit(ConcreteInteger.DecimalDigit.FOUR)
+                               .build();
+        c = b.subtract(a);
+        assertEquals(3, c.getValue());
+        c = c.subtract(a);
+        assertEquals(2, c.getValue());
+        c = c.subtract(b);
+        assertEquals(-2, c.getValue());
     }
 }
