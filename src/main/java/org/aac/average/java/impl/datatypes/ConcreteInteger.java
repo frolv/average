@@ -101,6 +101,28 @@ public class ConcreteInteger implements Comparable<ConcreteInteger> {
         return new ConcreteInteger(this.getValue() - other.getValue());
     }
 
+    /**
+     * Create a new ConcreteInteger whose value is the product of
+     * this and other.
+     *
+     * @param other the ConcreteInteger to multiply with this one.
+     * @return a new ConcreteInteger whose value is the difference.
+     */
+    public ConcreteInteger multiply(ConcreteInteger other) {
+        return new ConcreteInteger(this.getValue() * other.getValue());
+    }
+
+    /**
+     * Create a new ConcreteInteger whose value is the quotient of
+     * this and other.
+     *
+     * @param other the ConcreteInteger to divide this one by.
+     * @return a new ConcreteInteger whose value is the difference.
+     */
+    public ConcreteInteger divide(ConcreteInteger other) {
+        return new ConcreteInteger(this.getValue() / other.getValue());
+    }
+
     public int compareTo(ConcreteInteger other) {
         return this.subtract(other).getValue();
     }
