@@ -120,6 +120,8 @@ public class ConcreteInteger implements Comparable<ConcreteInteger> {
      * @return a new ConcreteInteger whose value is the difference.
      */
     public ConcreteInteger divide(ConcreteInteger other) {
+        if (other.getValue() == 0)
+            throw new IllegalArgumentException();
         return new ConcreteInteger(this.getValue() / other.getValue());
     }
 
