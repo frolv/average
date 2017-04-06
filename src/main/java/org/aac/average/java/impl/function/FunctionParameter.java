@@ -1,7 +1,7 @@
 package org.aac.average.java.impl.function;
 
 public class FunctionParameter<T> {
-    String name;
+    private String name;
 
     public FunctionParameter(String name) {
         this.name = name;
