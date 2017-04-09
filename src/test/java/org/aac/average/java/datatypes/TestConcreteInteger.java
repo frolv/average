@@ -116,4 +116,22 @@ public class TestConcreteInteger {
         c = c.subtract(b);
         assertEquals(-2, c.getValue());
     }
+
+    @Test
+    public void testMultiply() {
+        ConcreteInteger a, b, c;
+
+        a = new ConcreteInteger.DecimalBuilder()
+                               .addDigit(ConcreteInteger.DecimalDigit.SEVEN)
+                               .build();
+        b = new ConcreteInteger.DecimalBuilder()
+                               .addDigit(ConcreteInteger.DecimalDigit.NINE)
+                               .buildNegative();
+        c = a.multiply(b);
+        assertEquals(-63, c.getValue());
+        c = a.multiply(a);
+        assertEquals(49, c.getValue());
+        c = c.multiply(new ConcreteInteger.DecimalBuilder().build());
+        assertEquals(0, c.getValue());
+    }
 }
