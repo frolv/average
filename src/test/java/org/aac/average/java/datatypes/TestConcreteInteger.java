@@ -2,6 +2,7 @@ package org.aac.average.java.datatypes;
 
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 import org.aac.average.java.impl.datatypes.ConcreteInteger;
 
@@ -133,5 +134,27 @@ public class TestConcreteInteger {
         assertEquals(49, c.getValue());
         c = c.multiply(new ConcreteInteger.DecimalBuilder().build());
         assertEquals(0, c.getValue());
+    }
+
+    @Test
+    public void testDivide() {
+        ConcreteInteger a, b, c;
+
+        a = new ConcreteInteger.DecimalBuilder()
+                               .addDigit(ConcreteInteger.DecimalDigit.NINE)
+                               .build();
+        b = new ConcreteInteger.DecimalBuilder()
+                               .addDigit(ConcreteInteger.DecimalDigit.THREE)
+                               .buildNegative();
+        c = a.divide(b);
+        assertEquals(-3, c.getValue());
+        c = c.divide(b);
+        assertEquals(1, c.getValue());
+        c = c.divide(a);
+        assertEquals(0, c.getValue());
+        try {
+            c = a.divide(c);
+            fail("Divison by zero: IllegalArgumentException not thrown");
+        } catch (IllegalArgumentException e) {}
     }
 }
